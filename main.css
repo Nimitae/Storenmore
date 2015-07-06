@@ -1,0 +1,46 @@
+.equip-div{
+    height : auto;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
+
+@font-face {
+    font-family: futura_bt_bold;
+    src: url(ufonts.com_futurabt-bold-opentype.otf) format("opentype");
+}
+
+.nav-text {
+    font-family: futura_bt_bold !important;
+}
+
+.navbar {
+    font-family: futura_bt_bold !important;
+}
+
+.equipment-panel {
+    border: 0;
+    height: 700px;
+}
+
+.equip-image {
+    text-align: center;
+}
+
+.equip-text {
+    padding-top: 20px;
+}
+
+.hashtags {
+    height: 20px;
+    bottom: 50px;
+    text-align: center;
+}
+.navbar-brand{
+    color: #ffffff !important;
+}

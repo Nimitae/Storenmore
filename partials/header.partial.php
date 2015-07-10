@@ -32,7 +32,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="">StoreNMore</a>
+            <a class="navbar-brand" href="/">StoreNMore</a>
         </div>
         <div>
             <ul class="nav navbar-nav">
@@ -40,6 +40,13 @@
                 <li><a class="nav-text" href="/crafting">CRAFTING</a></li>
                 <li><a class="nav-text" href="/usables">USABLES</a></li>
             </ul>
+            <?php if (isset($_SESSION['username'])) : ?>
+            <ul class="pull-right nav navbar-nav">
+                <li><a class="nav-text" href="/equipment/admin.php">EQUIPMENT(ADMIN)</a></li>
+                <li><a class="nav-text" href="/crafting/admin.php">CRAFTING(ADMIN)</a></li>
+                <li><a class="nav-text" href="/usables/admin.php">USABLES(ADMIN)</a></li>
+            </ul>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

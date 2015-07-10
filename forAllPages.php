@@ -12,3 +12,7 @@ define("BOWMAN_CLASS", 6);
 
 define("AVAILABLE", 1);
 define("SOLD", 2);
+
+define("UNLISTED", 1);
+define("INSTOCK", 2);
+define("NOSTOCK", 3);

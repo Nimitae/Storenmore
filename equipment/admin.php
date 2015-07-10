@@ -2,11 +2,11 @@
 require_once("../forAllPages.php");
 require_once("../config.php");
 require_once("../equipment.class.php");
-/*
+
 if (!isset($_SESSION['username'])){
     header('Location: index.php');
 }
-*/
+
 $pdo = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
 if (isset($_POST['newEquipment'])) {
     $target_dir = "images/";

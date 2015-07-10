@@ -52,7 +52,7 @@ include("../partials/header.partial.php");
                         <p class="description">Description: <?php print $equipment->description ?></p>
 
                         <p class="price">
-                            Price: <?php $equipment->price > 0 ? print $equipment->price : print "Make us an offer" ?>
+                            Price: <?php !empty($equipment->price)? print $equipment->price : print "Make us an offer" ?>
                         </p>
                     </div>
 

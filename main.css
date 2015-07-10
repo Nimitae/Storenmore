@@ -44,3 +44,11 @@ hr {
 .navbar-brand{
     color: #ffffff !important;
 }
+
+.crafting-panel {
+    text-align: center;
+}
+
+.usable-panel {
+    text-align: center;
+}

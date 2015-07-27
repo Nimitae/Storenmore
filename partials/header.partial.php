@@ -20,27 +20,43 @@
 <body>
 <div id='demo'></div>
 <!-- Start Nav -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container" style="width: 80%">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">StoreNMore</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">thebackyard</a>
         </div>
-        <div>
+
+        <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a class="nav-text" href="/equipment">EQUIPMENT</a></li>
-                <li><a class="nav-text" href="/usables">USABLES</a></li>
-                <li><a class="nav-text" href="/sell">SELL TO US</a></li>
-            </ul><ul class="pull-right nav navbar-nav">
-            <?php if (isset($_SESSION['username'])) : ?>
+                <li>
+                    <a href="#">BROWSE</a>
+                </li>
+                <li>
+                    <a href="#">SELL</a>
+                </li>
+                <li>
+                    <form action="index.php" class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </form>
+                </li>
+            </ul>
 
-                <li><a class="nav-text" href="/equipment/admin.php">EQUIPMENT(ADMIN)</a></li>
-                <li><a class="nav-text" href="/crafting/admin.php">CRAFTING(ADMIN)</a></li>
-                <li><a class="nav-text" href="/usables/admin.php">USABLES(ADMIN)</a></li>
-
-            <?php endif; ?>
-                <li><a class="nav-text" href="/chat">TALK TO US</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">LOGIN</a>
+                </li>
             </ul>
         </div>
+
     </div>
-</nav>
+        <!--/.nav-collapse -->
+
+
+</div>
 <br>

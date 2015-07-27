@@ -20,7 +20,7 @@
 <body>
 <div id='demo'></div>
 <!-- Start Nav -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #31d8c8">
     <div class="container" style="width: 80%">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

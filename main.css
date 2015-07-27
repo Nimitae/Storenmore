@@ -22,20 +22,6 @@ hr {
 .navbar {
     font-family: futura_bt_bold !important;
 }
-
-.equipment-panel {
-    border: 0;
-    height: 700px;
-}
-
-.equip-image {
-    text-align: center;
-}
-
-.equip-text {
-    padding-top: 20px;
-}
-
 .hashtags {
     height: 20px;
     bottom: 50px;
@@ -45,25 +31,18 @@ hr {
     color: #ffffff !important;
 }
 
-.crafting-panel {
+.centeredImage
+{
     text-align: center;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:0px;
 }
 
-.usable-panel {
-    text-align: center;
+h2{
+    font-family: futura_bt_bold;
 }
 
-.sell-panel {
-    text-align: center;
-}
-.usable-image {
-    height:32px;
-}
-
-.crafting-image{
-    height:32px;
-}
-
-.usable-desc{
-    text-align: left;
+.navbar{
+    background-color: #31d8c8 !important;
 }

@@ -112,9 +112,9 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `priceType` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `orderTimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `orderTimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL,
-  `statusTImestamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `statusTimestamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `uploaded` (
   `username` varchar(20) NOT NULL,
   `priceType` int(11) NOT NULL,
   `price` int(11) DEFAULT NULL,
-  `uploadTimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `uploadTimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL,
   `statusTimestamp` int(11) NOT NULL,
   `description` varchar(500) NOT NULL

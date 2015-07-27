@@ -42,7 +42,19 @@ hr {
 }
 
 h2 {
+    color: #202A25;
+    margin-left: 50px !important;
+}
+
+h3{
+    background-color: #00223f;
+    color: white;
+    padding: 5px 15px;
+    font-size: 15px;
+}
+h1,h2,h3,h4{
     font-family: futura_bt_bold;
+    margin: 0;
 }
 
 .navbar.navbar-inverse {
@@ -56,10 +68,54 @@ h2 {
 }
 
 .panel-default > .panel-footer {
-    font: 15px 'futura_bt_bold'
+    font: 15px 'futura_bt_bold';
+    text-align: left;
 }
 
 .panel-default > .panel-body {
     text-align: center;
 }
 
+.bluebg{
+    background-color: #00E6E6;
+}
+
+.blackfont{
+    color:black;
+}
+.modal-header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+body{
+    background-image: url("http://38.media.tumblr.com/tumblr_m9amnpN9vz1rdwlp0o1_500.gif");
+}
+
+.filter-body{
+    padding: 0 15px;
+}
+
+.filter-sidebar{
+    width: 200px;
+    margin: 0px 0px 0px 50px;
+    padding: 0
+}
+
+div.right{
+    position:absolute;
+    top: 125px;
+    right: 50px;
+    left: 225px;
+    height: 500px;
+}
+
+.filter-header>a :hover{
+    color: #00E6E6;
+}
+
+.eyeball-sm {
+    height: 9%;
+    width: 9%;
+    vertical-align: middle;
+}

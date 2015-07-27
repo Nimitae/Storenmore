@@ -4,6 +4,8 @@
     <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.5-dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
     <link rel="stylesheet" type="text/css" href="/main.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style>
         ul {
             list-style-type: none;
@@ -20,7 +22,7 @@
 <body>
 <div id='demo'></div>
 <!-- Start Nav -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container" style="width: 80%">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,17 +48,19 @@
                     </form>
                 </li>
             </ul>
-
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">LOGIN</a>
+                    <a data-toggle="modal" href="#myModal" class="button">LOGIN
+                    </a>
                 </li>
             </ul>
+
+
         </div>
 
     </div>
-        <!--/.nav-collapse -->
 
 
 </div>
+
 <br>

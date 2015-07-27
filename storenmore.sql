@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `uploaded` (
   `imageURL` varchar(100) NOT NULL,
   `username` varchar(20) NOT NULL,
   `priceType` int(11) NOT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` varchar(20) DEFAULT NULL,
   `uploadTimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL,
   `statusTimestamp` int(11) NOT NULL,

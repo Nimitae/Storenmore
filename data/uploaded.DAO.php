@@ -1,5 +1,4 @@
 <?php
-require_once('classes/uploaded.class.php');
 require_once('data/log.DAO.php');
 require_once('config.php');
 
@@ -110,6 +109,8 @@ class UploadedDAO
             return false;
         }
     }
+
+
 }
 
 

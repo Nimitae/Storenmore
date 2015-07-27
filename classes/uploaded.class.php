@@ -13,6 +13,8 @@ class Uploaded
     var $statusTimestamp;
     var $description;
 
+    var $taggingArray;
+
     public function __construct($id, $name, $imageURL, $username, $realPrice, $mesoPrice, $uploadTimestamp, $status, $statusTimestamp,$description )
     {
         $this->id = $id;

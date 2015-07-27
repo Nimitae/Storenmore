@@ -1,5 +1,5 @@
-.equip-div{
-    height : auto;
+.equip-div {
+    height: auto;
 }
 
 hr {
@@ -22,29 +22,44 @@ hr {
 .navbar {
     font-family: futura_bt_bold !important;
 }
+
 .hashtags {
     height: 20px;
     bottom: 50px;
     text-align: center;
 }
-.navbar-brand{
+
+.navbar-brand {
     color: #F7F700 !important;
     font-size: 30px;
 }
 
-.centeredImage
-{
+.centeredImage {
     text-align: center;
-    margin-top:0px;
-    margin-bottom:0px;
-    padding:0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
 }
 
-h2{
+h2 {
     font-family: futura_bt_bold;
 }
 
-.navbar.navbar-inverse{
+.navbar.navbar-inverse {
     background-color: #31d8c8 !important;
     border: none;
 }
+
+.panel-default > .panel-heading {
+    color: white;
+    font: 15px 'futura_bt_bold'
+}
+
+.panel-default > .panel-footer {
+    font: 15px 'futura_bt_bold'
+}
+
+.panel-default > .panel-body {
+    text-align: center;
+}
+

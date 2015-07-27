@@ -23,8 +23,8 @@ include("../partials/header.partial.php");
 <br><br>
 <div class="container">
 <?php foreach ($usableList as $usable) : ?>
-    <div class="col-sm-2 usable-panel">
-        <div class="panel panel-info">
+    <div class="col-sm-3 usable-panel">
+        <div class="panel panel-info" style="height:350px;">
             <div class="panel-heading"><?php print $usable->name ?></div>
             <div class="panel-body">
                 <div class="usable-image">
@@ -36,15 +36,15 @@ include("../partials/header.partial.php");
                         Price: <?php !empty($usable->price) ? print $usable->price : print "Not listed" ?>
                     </p>
                 </div>
-                <div class="usable-text">
+                <div class="usable-desc">
                     <p class="price">
-                        Desc: <?php print $usable->description ?>
+                        <?php print $usable->description ?>
                     </p>
                 </div>
 
                 <div class="usable-stock">
                     <p class="stock">
-                        <?php if ($usable->stock == INSTOCK) print "In stock"; else print "No stock"; ?>
+                        <b><?php if ($usable->stock == INSTOCK) print "In stock"; else print "No stock"; ?></b>
                     </p>
                 </div>
             </div>

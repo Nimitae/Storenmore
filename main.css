@@ -52,3 +52,18 @@ hr {
 .usable-panel {
     text-align: center;
 }
+
+.sell-panel {
+    text-align: center;
+}
+.usable-image {
+    height:32px;
+}
+
+.crafting-image{
+    height:32px;
+}
+
+.usable-desc{
+    text-align: left;
+}

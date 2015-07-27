@@ -24,7 +24,7 @@ include("../partials/header.partial.php");
 <div class="container">
 <?php foreach ($craftingList as $crafting) : ?>
     <div class="col-sm-2 crafting-panel">
-        <div class="panel panel-info" style="height:250px;">
+        <div class="panel panel-info" style="height: 200px;">
             <div class="panel-heading"><?php print $crafting->name ?></div>
             <div class="panel-body">
                 <div class="crafting-image">

@@ -28,7 +28,8 @@ hr {
     text-align: center;
 }
 .navbar-brand{
-    color: #ffffff !important;
+    color: #F7F700 !important;
+    font-size: 30px;
 }
 
 .centeredImage
@@ -43,6 +44,7 @@ h2{
     font-family: futura_bt_bold;
 }
 
-.navbar{
+.navbar.navbar-inverse{
     background-color: #31d8c8 !important;
+    border: none;
 }

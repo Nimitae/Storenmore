@@ -26,4 +26,30 @@ class Uploaded
         $this->status = $status;
         $this->statusTimestamp = $statusTimestamp;
     }
+
+    public function isValidUploaded($isNew)
+    {
+        $errorArray = array();
+        if ($isNew && $this->id != NULL) {
+            $errorArray[] = 'id is invalid';
+        } else if (!$isNew && is_nan($this->id)){
+            $errorArray[] = 'id is invalid';
+        }
+
+        if (is_null($this->name)) {
+            $errorArray[] = 'name is invalid';
+        }
+
+        if (is_null($this->imageURL)) {
+            $errorArray[] = 'imageURL is invalid';
+        }
+
+        if (is_null($this->username)) {
+            $errorArray[] = 'username is invalid';
+        }
+
+        if (is_nan($this->status)) {
+            $errorArray[] = 'status is invalid';
+        }
+    }
 }

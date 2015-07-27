@@ -7,7 +7,7 @@ class UploadedDAO
 {
     public function getAllUploaded()
     {
-        $sql = "SELECT * FROM uploaded ORDER BY statusTimestamp ASC;";
+        $sql = "SELECT * FROM uploaded WHERE status <> 3 ORDER BY statusTimestamp ASC;";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $resultsArray = $resultSet->fetchAll(PDO::FETCH_ASSOC);
@@ -18,14 +18,14 @@ class UploadedDAO
     {
         $sql = "SELECT *
                         FROM uploaded
-                       WHERE " . $attribute . " = '" . $attributeValue[0] . "'";
+                       WHERE status <> 3 AND (" . $attribute . " = '" . $attributeValue[0] . "'";
         if (count($attributeValue) > 1) {
             array_shift($attributeValue);
             foreach ($attributeValue as $value) {
                 $sql .= "OR " . $attribute . " = '" . $value . "'";
             }
         }
-        $sql .= "ORDER BY statusTimestamp ASC;";
+        $sql .= ") ORDER BY statusTimestamp ASC;";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $resultSet = $dbh->query($sql);
         $resultsArray = $resultSet->fetchAll(PDO::FETCH_ASSOC);
@@ -72,8 +72,8 @@ class UploadedDAO
         $sqlInsert = "UPDATE uploaded SET name = :name,
                         imageURL = :imageURL,
                         username = :username,
-                        priceType = :realPrice,
-                        price = :mesoPrice,
+                        realPrice = :realPrice,
+                        mesoPrice = :mesoPrice,
                         status = :status,
                         statusTimestamp = :statusTimestamp,
                         description = :description WHERE
@@ -101,6 +101,7 @@ class UploadedDAO
             ":id" => $uploaded->id
         );
         $logDAO = new LogDAO();
+        var_dump($stmt->errorInfo());
         if ($stmt->execute()) {
             $logDAO->logPreparedStatement('INSERT', $stmt, $binds, 'SUCCESS');
             return true;

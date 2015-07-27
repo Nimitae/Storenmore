@@ -35,14 +35,14 @@ class UploadedDAO
     public function createUploaded($uploaded)
     {
         /** @var Uploaded $uploaded */
-        $sqlInsert = "INSERT INTO uploaded VALUES(NULL, :name, :imageURL, :username, :priceType, :price, NULL, :status, :statusTimestamp, :description);";
+        $sqlInsert = "INSERT INTO uploaded VALUES(NULL, :name, :imageURL, :username, :realPrice, :mesoPrice, NULL, :status, :statusTimestamp, :description);";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sqlInsert);
         $stmt->bindParam(':name', $uploaded->name);
         $stmt->bindParam(':imageURL', $uploaded->imageURL);
         $stmt->bindParam(':username', $uploaded->username);
-        $stmt->bindParam(':priceType', $uploaded->priceType);
-        $stmt->bindParam(':price', $uploaded->price);
+        $stmt->bindParam(':realPrice', $uploaded->realPrice);
+        $stmt->bindParam(':mesoPrice', $uploaded->mesoPrice);
         $stmt->bindParam(':status', $uploaded->status);
         $stmt->bindParam(':statusTimestamp', $uploaded->statusTimestamp);
         $stmt->bindParam(':description', $uploaded->description);
@@ -50,8 +50,8 @@ class UploadedDAO
             ":name" => $uploaded->name,
             ":imageURL" => $uploaded->imageURL,
             ":username" => $uploaded->username,
-            ":priceType" => $uploaded->priceType,
-            ":price" => $uploaded->price,
+            ":realPrice" => $uploaded->realPrice,
+            ":mesoPrice" => $uploaded->mesoPrice,
             ":status" => $uploaded->status,
             ":statusTimestamp" => $uploaded->statusTimestamp,
             ":description" => $uploaded->description,
@@ -72,8 +72,8 @@ class UploadedDAO
         $sqlInsert = "UPDATE uploaded SET name = :name,
                         imageURL = :imageURL,
                         username = :username,
-                        priceType = :priceType,
-                        price = :price,
+                        priceType = :realPrice,
+                        price = :mesoPrice,
                         status = :status,
                         statusTimestamp = :statusTimestamp,
                         description = :description WHERE
@@ -83,8 +83,8 @@ class UploadedDAO
         $stmt->bindParam(':name', $uploaded->name);
         $stmt->bindParam(':imageURL', $uploaded->imageURL);
         $stmt->bindParam(':username', $uploaded->username);
-        $stmt->bindParam(':priceType', $uploaded->priceType);
-        $stmt->bindParam(':price', $uploaded->price);
+        $stmt->bindParam(':realPrice', $uploaded->realPrice);
+        $stmt->bindParam(':mesoPrice', $uploaded->mesoPrice);
         $stmt->bindParam(':status', $uploaded->status);
         $stmt->bindParam(':statusTimestamp', $uploaded->statusTimestamp);
         $stmt->bindParam(':description', $uploaded->description);
@@ -93,8 +93,8 @@ class UploadedDAO
             ":name" => $uploaded->name,
             ":imageURL" => $uploaded->imageURL,
             ":username" => $uploaded->username,
-            ":priceType" => $uploaded->priceType,
-            ":price" => $uploaded->price,
+            ":realPrice" => $uploaded->realPrice,
+            ":mesoPrice" => $uploaded->mesoPrice,
             ":status" => $uploaded->status,
             ":statusTimestamp" => $uploaded->statusTimestamp,
             ":description" => $uploaded->description,
@@ -109,9 +109,6 @@ class UploadedDAO
             return false;
         }
     }
-
-
-
 }
 
 

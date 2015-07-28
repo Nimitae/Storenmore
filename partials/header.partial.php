@@ -53,11 +53,18 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#upload" data-toggle="modal">UPLOAD</a></li>
-                <li>
-                    <a data-toggle="modal" href="#myModal" class="button"><span class="glyphicon glyphicon-lock"></span>LOGIN
-                    </a>
-                </li>
+
+
+                <?php if (!isset($_SESSION['username'])) : ?>
+                    <li><a data-toggle="modal" href="#myModal" class="button"><span
+                                class="glyphicon glyphicon-lock"></span>LOGIN
+                        </a></li>
+
+                <?php else : ?>
+                    <li><a href="#upload" data-toggle="modal">UPLOAD</a></li>
+                    <li><a href="logout.php">LOGOUT (<?php print $_SESSION['username'] ?>)</a></li>
+                <?php endif; ?>
+
             </ul>
 
 
@@ -81,15 +88,17 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" style="text-align: center">
+                <form method="post" action="login.php" class="form-horizontal" style="text-align: center">
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
-                            <input class="form-control" type="text" id="inputEmail" placeholder="Email">
+                            <input class="form-control" name="inputUsername" type="text" id="inputUsername"
+                                   placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
-                            <input class="form-control" type="password" id="inputPassword" placeholder="Password">
+                            <input class="form-control" name="inputPassword" type="password" id="inputPassword"
+                                   placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">
@@ -123,48 +132,43 @@
             </div>
 
             <div class="modal-body">
-                <form class="form-horizontal" style="text-align: center">
+                <form method="post" action="upload.php" enctype="multipart/form-data" class="form-horizontal"
+                      style="text-align: center">
                     <div class="form-group">
                         <label for="uploadfile">Upload File</label>
 
                         <div style="width: 100%; padding-left: 150px">
-                            <input type="file" id="uploadfile">
+                            <input type="file" id="uploadfile" name="uploadedFile">
                         </div>
                         <p class="help-block"></p>
                     </div>
 
                     <div class="form-group">
                         <div style="width: 300px; margin: auto" class="col-sm-offset-3">
-                            <input class="form-control" type="text" id="inputTitle" placeholder="Title">
+                            <input class="form-control" type="text" id="inputTitle" name="itemName" placeholder="Title">
                         </div>
                     </div>
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
-                            <div class="col-sm-8">
-                            <input class="form-control" type="text" id="inputPrice" placeholder="Price">
+                            <div class="col-sm-12">
+                                <input class="form-control" type="text" id="inputPrice" name="mesoPrice"
+                                       placeholder="Price (Mesos)">
                             </div>
-                            <div class="form-group"><label for="select" class="control-label"></label>
 
-                                <div class="col-sm-4"><select class="form-control" id="select" name="select">
-                                        <option value="yes">SGD</option>
-                                        <option value="no">RM</option>
-                                        <option value="may_be">Mesos</option>
-                                    </select></div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
                             <div class="col-sm-8">
-                                <input class="form-control" type="text" id="inputPrice2" placeholder="Price">
+                                <input class="form-control" type="text" name="realPrice" id="inputPrice2"
+                                       placeholder="Price (Real Money)">
                             </div>
                             <div class="form-group"><label for="select" class="control-label"></label>
 
-                                <div class="col-sm-4"><select class="form-control" id="select" name="select">
-                                        <option value="yes">SGD</option>
-                                        <option value="no">RM</option>
-                                        <option value="may_be">Mesos</option>
+                                <div class="col-sm-4"><select class="form-control" id="select" name="currency">
+                                        <option value="SGD">SGD</option>
+                                        <option value="RM">RM</option>
                                     </select></div>
                             </div>
                         </div>

@@ -26,8 +26,9 @@ class UserService
         $userDAO = new UserDAO();
         $userResults = $userDAO->getUserByUsernameAndPassword($username, $password);
         $userArray = $this->createUserArray($userResults);
-        if (isset($userArray[0])) {
-            return $userArray[0];
+        $foundUser = array_pop($userArray);
+        if ($foundUser) {
+            return $foundUser;
         } else {
             return false;
         }
@@ -86,6 +87,25 @@ class UserService
         $uploadedResults = $uploadedDAO->searchUploadedForPartialText($text);
         $uploadedArray = $this->createUploadedArray($uploadedResults);
         return $uploadedArray;
+    }
+
+    public function isValidImage($fileArray)
+    {
+        $isValidImage = true;
+        if ($fileArray['uploadedFile']['error'] !== UPLOAD_ERR_OK) {
+            $isValidImage = false;
+        }
+
+        $info = getimagesize($fileArray['uploadedFile']['tmp_name']);
+        if ($info === FALSE) {
+            $isValidImage = false;
+        }
+
+        if (($info[2] !== IMAGETYPE_GIF) && ($info[2] !== IMAGETYPE_JPEG) && ($info[2] !== IMAGETYPE_PNG)) {
+            $isValidImage = false;
+        }
+
+        return $isValidImage;
     }
 
     private function createUploadedArray($uploadedResults)

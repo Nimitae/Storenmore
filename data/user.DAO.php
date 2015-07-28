@@ -26,7 +26,7 @@ class UserDAO
 
     public function getUserByUsernameAndPassword($username, $password)
     {
-        $sql = "SELECT * FROM users WHERE username =: username AND password =:password LIMIT 1;";
+        $sql = "SELECT * FROM users WHERE username = :username AND password =:password LIMIT 1;";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':username', $username);

@@ -40,7 +40,7 @@
                     <a href="/browse.php">BROWSE</a>
                 </li>
                 <li>
-                    <a href="/buysell-hse.php">BUY/SELL</a>
+                    <a href="/buysell.php">BUY/SELL</a>
                     <ul class="dropdown">
                         <li><a href="/buysell-te.php">Twisted Essences</a></li>
                         <li><a href="/buysell-hse.php">High Spell Essences</a></li>
@@ -53,7 +53,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">SELL</a></li>
+                <li><a href="#upload" data-toggle="modal">UPLOAD</a></li>
                 <li>
                     <a data-toggle="modal" href="#myModal" class="button"><span class="glyphicon glyphicon-lock"></span>LOGIN
                     </a>
@@ -77,7 +77,8 @@
         <div class="modal-content" style="width: 500px; margin: auto">
             <div class="modal-header bluebg">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="text-align: center"><span class="glyphicon glyphicon-lock"></span> LOGIN</h4>
+                <h4 class="modal-title" style="text-align: center"><span class="glyphicon glyphicon-lock"></span> LOGIN
+                </h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" style="text-align: center">
@@ -102,6 +103,76 @@
                     <div class="form-group">
                         <div>
                             <button type="submit" class="btn btn-default">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="upload" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="width: 500px; margin: auto">
+            <div class="modal-header bluebg">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align: center">Upload Picture of Equipment</h4>
+            </div>
+
+            <div class="modal-body">
+                <form class="form-horizontal" style="text-align: center">
+                    <div class="form-group">
+                        <label for="uploadfile">Upload File</label>
+
+                        <div style="width: 100%; padding-left: 150px">
+                            <input type="file" id="uploadfile">
+                        </div>
+                        <p class="help-block"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="width: 300px; margin: auto" class="col-sm-offset-3">
+                            <input class="form-control" type="text" id="inputTitle" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div style="width: 300px; margin: auto">
+                            <div class="col-sm-8">
+                            <input class="form-control" type="text" id="inputPrice" placeholder="Price">
+                            </div>
+                            <div class="form-group"><label for="select" class="control-label"></label>
+
+                                <div class="col-sm-4"><select class="form-control" id="select" name="select">
+                                        <option value="yes">SGD</option>
+                                        <option value="no">RM</option>
+                                        <option value="may_be">Mesos</option>
+                                    </select></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="width: 300px; margin: auto">
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" id="inputPrice2" placeholder="Price">
+                            </div>
+                            <div class="form-group"><label for="select" class="control-label"></label>
+
+                                <div class="col-sm-4"><select class="form-control" id="select" name="select">
+                                        <option value="yes">SGD</option>
+                                        <option value="no">RM</option>
+                                        <option value="may_be">Mesos</option>
+                                    </select></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-default">Upload</button>
                         </div>
                     </div>
                 </form>

@@ -100,12 +100,12 @@ include("partials/header.partial.php");
                 <form class="form-horizontal" style="text-align: center">
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
-                            <input class="form-control" type="text" id="inputEmail" placeholder="Quantity">
+                            <input class="form-control" type="text" id="inputQuantity" placeholder="Quantity">
                         </div>
                     </div>
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
-                            <input class="form-control" type="text" id="inputPassword" placeholder="Total Price">
+                            <input class="form-control" type="text" id="inputPrice" placeholder="Total Price">
                         </div>
                     </div>
                     <div class="form-group">
@@ -134,12 +134,12 @@ include("partials/header.partial.php");
                 <form class="form-horizontal" style="text-align: center">
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
-                            <input class="form-control" type="text" id="inputEmail" placeholder="Quantity">
+                            <input class="form-control" type="text" id="inputQuantity" placeholder="Quantity">
                         </div>
                     </div>
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
-                            <input class="form-control" type="text" id="inputPassword" placeholder="Total Price">
+                            <input class="form-control" type="text" id="inputPrice" placeholder="Total Price">
                         </div>
                     </div>
                     <div class="form-group">

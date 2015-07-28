@@ -28,7 +28,7 @@ include("partials/header.partial.php");
                 <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg"></div>
                 <div class="panel-footer">
                     Price:##
-                    <a href=""><img src="http://cdn.flaticon.com/svg/23/23912.svg" class="eyeball-sm pull-right"></a>
+                    <a href=""><img src="http://cdn.flaticon.com/svg/23/23912.svg" class="s-9 pull-right"></a>
                 </div>
             </div>
         </div>

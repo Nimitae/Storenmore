@@ -140,7 +140,7 @@
                         <div style="width: 100%; padding-left: 150px">
                             <input type="file" id="uploadfile" name="uploadedFile">
                         </div>
-                        <p class="help-block"></p>
+                        <!--<p class="help-block"> abcdefgh </p>-->
                     </div>
 
                     <div class="form-group">
@@ -170,6 +170,7 @@
                                         <option value="SGD">SGD</option>
                                         <option value="RM">RM</option>
                                     </select></div>
+
                             </div>
                         </div>
                     </div>

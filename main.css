@@ -119,3 +119,13 @@ div.right{
     width: 9%;
     vertical-align: middle;
 }
+.dynamic{
+    max-width: 90%;
+    height: auto;
+    width: auto;
+}
+
+.nopadding-right {
+    padding-right: 0 !important;
+    margin: 0 !important;
+}

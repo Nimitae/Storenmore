@@ -46,7 +46,7 @@ include("partials/header.partial.php");
             <label draggable="true">
                 <input type="checkbox" class="sh-active-element">Cape</label>
         </div>
-        
+
     </div>
     <div class="filter-header">
         <a href="#type" data-toggle="collapse"><h3>Type</h3></a>
@@ -102,27 +102,27 @@ include("partials/header.partial.php");
 
 
 <div class="container-fluid right">
-    <div class="col-sm-10">
-        <div class="col-sm-5 weapons">
+    <div class="col-sm-12">
+        <div class="col-sm-4 weapons nopadding-right">
             <div class="panel panel-default">
                 <div class="panel-heading">Title of goods</div>
-                <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg"></div>
+                <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg" class="dynamic"></div>
                 <div class="panel-footer"> Price: ##</div>
             </div>
         </div>
 
-        <div class="col-sm-5 weapons">
+        <div class="col-sm-4 weapons nopadding-right">
             <div class="panel panel-default">
                 <div class="panel-heading">Title of goods</div>
-                <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg"></div>
+                <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg" class="dynamic"></div>
                 <div class="panel-footer"> Price: ##</div>
             </div>
         </div>
 
-        <div class="col-sm-5 weapons">
+        <div class="col-sm-4 weapons nopadding-right">
             <div class="panel panel-default">
                 <div class="panel-heading">Title of goods</div>
-                <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg"></div>
+                <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg" class="dynamic"></div>
                 <div class="panel-footer"> Price: ##</div>
             </div>
         </div>

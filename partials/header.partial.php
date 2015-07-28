@@ -40,7 +40,7 @@
                     <a href="/browse.php">BROWSE</a>
                 </li>
                 <li>
-                    <a href="#">SELL</a>
+                    <a href="#">BUY/SELL</a>
                 </li>
                 <li>
                     <form action="index.php" class="navbar-form navbar-right">
@@ -49,6 +49,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">SELL</a></li>
                 <li>
                     <a data-toggle="modal" href="#myModal" class="button"><span class="glyphicon glyphicon-lock"></span>LOGIN
                     </a>

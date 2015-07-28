@@ -101,7 +101,7 @@ include("partials/header.partial.php");
 </div>
 
 
-<div class="container-fluid right">
+<div class="container-fluid right" style="top: 125px">
     <div class="col-sm-12">
         <div class="col-sm-4 weapons nopadding-right">
             <div class="panel panel-default">

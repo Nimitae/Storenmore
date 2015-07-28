@@ -40,7 +40,7 @@
                     <a href="/browse.php">BROWSE</a>
                 </li>
                 <li>
-                    <a href="#">BUY/SELL</a>
+                    <a href="/buysell.php">BUY/SELL</a>
                 </li>
                 <li>
                     <form action="index.php" class="navbar-form navbar-right">

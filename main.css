@@ -104,9 +104,7 @@ body{
 
 div.right{
     position:absolute;
-    top: 125px;
     right: 50px;
-    left: 225px;
     height: 500px;
 }
 

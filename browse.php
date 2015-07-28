@@ -107,6 +107,8 @@ include("partials/header.partial.php");
             <div class="panel panel-default">
                 <div class="panel-heading">Title of goods</div>
                 <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg" class="dynamic"></div>
+                <div class="panel-body nopadding-top" style="text-align: left">Uploaded by: </div>
+                <div class="panel-footer"> Price: ##</div>
                 <div class="panel-footer"> Price: ##</div>
             </div>
         </div>

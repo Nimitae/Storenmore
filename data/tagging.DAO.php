@@ -6,19 +6,22 @@ class TaggingDAO
 {
     public function getTaggingByAttributeValuesArray($attribute, $attributeValue)
     {
-        $sql = "SELECT *
-                        FROM tagging
-                       WHERE " . $attribute . " = '" . $attributeValue[0] . "'";
+        $sqlParams = array();
+        $sql = "SELECT * FROM tagging
+                       WHERE " . $attribute . " = ?";
+        $sqlParams[] = $attributeValue[0];
         if (count($attributeValue) > 1) {
             array_shift($attributeValue);
             foreach ($attributeValue as $value) {
-                $sql .= "OR " . $attribute . " = '" . $value . "'";
+                $sql .= "OR " . $attribute . " = ?";
+                $sqlParams[] = $value;
             }
         }
         $sql .= " ORDER BY equipID ASC;";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
-        $resultSet = $dbh->query($sql);
-        $resultsArray = $resultSet->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute($sqlParams);
+        $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $resultsArray;
     }
 }

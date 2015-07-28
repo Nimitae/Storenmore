@@ -15,19 +15,23 @@ class UploadedDAO
 
     public function getUploadedByAttributeValuesArray($attribute, $attributeValue)
     {
+        $sqlParams = array();
         $sql = "SELECT *
                         FROM uploaded
-                       WHERE status <> 3 AND (" . $attribute . " = '" . $attributeValue[0] . "'";
+                       WHERE status <> 3 AND (" . $attribute . " = ?";
+        $sqlParams[] = $attributeValue[0];
         if (count($attributeValue) > 1) {
             array_shift($attributeValue);
             foreach ($attributeValue as $value) {
-                $sql .= "OR " . $attribute . " = '" . $value . "'";
+                $sql .= "OR " . $attribute . " = ?";
+                $sqlParams[] = $value;
             }
         }
         $sql .= ") ORDER BY statusTimestamp ASC;";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
-        $resultSet = $dbh->query($sql);
-        $resultsArray = $resultSet->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute($sqlParams);
+        $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $resultsArray;
     }
 
@@ -100,7 +104,6 @@ class UploadedDAO
             ":id" => $uploaded->id
         );
         $logDAO = new LogDAO();
-        var_dump($stmt->errorInfo());
         if ($stmt->execute()) {
             $logDAO->logPreparedStatement('INSERT', $stmt, $binds, 'SUCCESS');
             return true;
@@ -110,7 +113,17 @@ class UploadedDAO
         }
     }
 
-
+    public function searchUploadedForPartialText($text)
+    {
+        $sql = "SELECT * FROM uploaded WHERE name LIKE :text OR description LIKE :text;";
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $stmt = $dbh->prepare($sql);
+        $searchTerm = '%'.$text.'%';
+        $stmt->bindParam(':text', $searchTerm );
+        $stmt->execute();
+        $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultsArray;
+    }
 }
 
 

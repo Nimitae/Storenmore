@@ -27,6 +27,7 @@ class Uploaded
         $this->description = $description;
         $this->status = $status;
         $this->statusTimestamp = $statusTimestamp;
+        $this->taggingArray = array();
     }
 
     public function isValidUploaded($isNew)

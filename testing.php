@@ -4,5 +4,6 @@ require_once("forAllPages.php");
 require_once('services/user.service.php');
 
 $userService = new UserService();
-$uploaded = $userService->getUploadedByUsername('nimitae')[0];
-$userService->deleteUploaded($uploaded);
+$uploaded = $userService->searchUploadedForText('appe');
+shuffle($uploaded);
+var_dump($uploaded);

@@ -40,10 +40,14 @@
                     <a href="/browse.php">BROWSE</a>
                 </li>
                 <li>
-                    <a href="/buysell.php">BUY/SELL</a>
+                    <a href="/buysell-hse.php">BUY/SELL</a>
+                    <ul class="dropdown">
+                        <li><a href="/buysell-te.php">Twisted Essences</a></li>
+                        <li><a href="/buysell-hse.php">High Spell Essences</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <form action="index.php" class="navbar-form navbar-right">
+                    <form action="" class="navbar-form navbar-right">
                         <input type="text" class="form-control" placeholder="Search...">
                     </form>
                 </li>

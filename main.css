@@ -40,6 +40,10 @@ hr {
     margin-bottom: 0px;
     padding: 0px;
 }
+h1{
+    font-size: 40px;
+    margin-left: 20px !important;
+}
 
 h2 {
     color: #202A25;
@@ -80,6 +84,10 @@ h1,h2,h3,h4{
     background-color: #00E6E6;
 }
 
+.whitebg{
+    background-color: #fffffff;
+}
+
 .blackfont{
     color:black;
 }
@@ -105,7 +113,6 @@ body{
 div.right{
     position:absolute;
     right: 50px;
-    height: 500px;
 }
 
 .filter-header>a :hover{
@@ -131,4 +138,40 @@ div.right{
 .nopadding-top {
     padding-top: 0 !important;
     margin: 0 !important;
+}
+
+th {
+    background-color: #00223f;
+    color: whitesmoke;
+}
+
+ul li{
+    display: inline-block;
+    position: relative;
+    line-height: 21px;
+    text-align: center;
+}
+
+ul li a{
+    color: white;
+}
+ul li a:hover{
+    color: #000000;
+    background: #00E6E6;
+}
+ul li ul.dropdown{
+    width: 200px; /* Set width of the dropdown */
+    background: #00E6E6;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: -45px;
+    padding: 5px 15px;
+    font-size: 15px;
+}
+ul li:hover ul.dropdown{
+    display: block;	/* Display the dropdown */
+}
+ul li ul.dropdown li{
+    display: block;
 }

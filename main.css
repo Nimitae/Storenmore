@@ -129,3 +129,8 @@ div.right{
     padding-right: 0 !important;
     margin: 0 !important;
 }
+
+.nopadding-top {
+    padding-top: 0 !important;
+    margin: 0 !important;
+}

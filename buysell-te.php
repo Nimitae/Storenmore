@@ -94,7 +94,7 @@ include("partials/header.partial.php");
         <div class="modal-content" style="width: 500px; margin: auto">
             <div class="modal-header bluebg">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="text-align: center">BUY</h4>
+                <h4 class="modal-title" style="text-align: center"><img src="http://cdn.flaticon.com/svg/58/58063.svg" class="s-9">BUY</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" style="text-align: center">
@@ -128,7 +128,7 @@ include("partials/header.partial.php");
         <div class="modal-content" style="width: 500px; margin: auto">
             <div class="modal-header bluebg">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="text-align: center">SELL</h4>
+                <h4 class="modal-title" style="text-align: center"><img src="http://cdn.flaticon.com/png/256/66969.png" class="s-9"> SELL</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" style="text-align: center">

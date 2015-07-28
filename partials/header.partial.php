@@ -130,7 +130,7 @@
                         <div style="width: 100%; padding-left: 150px">
                             <input type="file" id="uploadfile">
                         </div>
-                        <p class="help-block"></p>
+                        <!--<p class="help-block"> abcdefgh </p>-->
                     </div>
 
                     <div class="form-group">
@@ -141,7 +141,7 @@
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
                             <div class="col-sm-8">
-                            <input class="form-control" type="text" id="inputPrice" placeholder="Price">
+                                <input class="form-control" type="text" id="inputPrice" placeholder="Price">
                             </div>
                             <div class="form-group"><label for="select" class="control-label"></label>
 
@@ -151,21 +151,19 @@
                                         <option value="may_be">Mesos</option>
                                     </select></div>
                             </div>
-                        </div>
-                    </div>
+                            <div style="width: 300px; margin: auto">
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="inputPrice" placeholder="Optional Price Setting">
+                                </div>
+                                <div class="form-group"><label for="select" class="control-label"></label>
 
-                    <div class="form-group">
-                        <div style="width: 300px; margin: auto">
-                            <div class="col-sm-8">
-                                <input class="form-control" type="text" id="inputPrice2" placeholder="Price">
-                            </div>
-                            <div class="form-group"><label for="select" class="control-label"></label>
-
-                                <div class="col-sm-4"><select class="form-control" id="select" name="select">
-                                        <option value="yes">SGD</option>
-                                        <option value="no">RM</option>
-                                        <option value="may_be">Mesos</option>
-                                    </select></div>
+                                    <div class="col-sm-4"><select class="form-control" id="select" name="select">
+                                            <option value="yes">SGD</option>
+                                            <option value="no">RM</option>
+                                            <option value="may_be">Mesos</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

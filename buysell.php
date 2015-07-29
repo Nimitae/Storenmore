@@ -1,42 +1,31 @@
 <?php
 require_once("forAllPages.php");
+require_once("services/goods.service.php");
+
+$goodsService = new GoodsService();
+$goodsContainer = $goodsService->getAllGoods();
+$goodsFound = false;
 
 
-include("partials/header.partial.php");
 
-?>
-<br><br>
 
-<div class="container">
-    <div class="row">
-        <a href="">
-            <div class="col-sm-2 sell-panel">
-                <div class="panel panel-info">
-                    <div class="panel-heading">Purple Cube</div>
-                    <div class="panel-body">
-                        <div class="usable-image centeredImage">
-                            <img src="images/purplecube.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
+if (isset($_GET['id']) && isset($goodsContainer[$_GET['id']])) {
+    $goodsFound = true;
+    if (isset($_POST['buyOrder'])) {
+        $newOrder = new Order(NULL, $_GET['id'], $_SESSION['username'],BUY_ORDER_TYPE, $_POST['priceType'], $_POST['price'], $_POST['quantity'],NULL, 1,date('Y-m-d G:i:s', time()) );
+        $orderPlacedSuccessfully = $goodsService->saveOrder($newOrder);
+    }
 
-    <!-- ETCS -->
+    if (isset($_POST['sellOrder'])){
+        $newOrder = new Order(NULL, $_GET['id'], $_SESSION['username'],SELL_ORDER_TYPE, $_POST['priceType'], $_POST['price'], $_POST['quantity'],NULL, 1,date('Y-m-d G:i:s', time()) );
+        $orderPlacedSuccessfully = $goodsService->saveOrder($newOrder);
+    }
+    $currentGoods = $goodsService->getGoodByID($_GET['id']);
+}
 
-    <div class="row">
-        <a href="">
-            <div class="col-sm-2 sell-panel">
-                <div class="panel panel-warning">
-                    <div class="panel-heading">Twisted Time</div>
-                    <div class="panel-body">
-                        <div class="usable-image centeredImage">
-                            <img src="images/twistedtime.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
+
+if ($goodsFound) {
+    include('views/buysellitem.view.php');
+} else {
+    include('views/buyselllisting.view.php');
+}

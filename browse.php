@@ -5,5 +5,5 @@ $userService = new UserService();
 
 $uploadedContainer = $userService->getAllUploaded();
 
-include("views/browser.view.php");
+include("views/browse.view.php");
 

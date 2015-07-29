@@ -6,3 +6,6 @@ ini_set('display_errors', '1');
 define("UPLOADED_UNLISTED", 1);
 define("UPLOADED_LISTED", 2);
 define("UPLOADED_DELETED", 3);
+
+define("BUY_ORDER_TYPE", 1);
+define("SELL_ORDER_TYPE", 2);

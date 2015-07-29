@@ -14,8 +14,9 @@ class UserService
         $userDAO = new UserDAO();
         $userResults = $userDAO->getUploadedByAttributeValuesArray('username', array($username));
         $userArray = $this->createUserArray($userResults);
-        if (isset($userArray[0])) {
-            return $userArray[0];
+        $foundUser = array_pop($userArray);
+        if ($foundUser) {
+            return $foundUser;
         } else {
             return false;
         }

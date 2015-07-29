@@ -2,8 +2,8 @@
 require_once("forAllPages.php");
 
 require_once('services/user.service.php');
+require_once('services/goods.service.php');
 
 $userService = new UserService();
-$uploaded = $userService->searchUploadedForText('appe');
-shuffle($uploaded);
-var_dump($uploaded);
+$goodsService= new GoodsService();
+var_dump($goodsService->getAllGoods());

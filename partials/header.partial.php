@@ -42,7 +42,6 @@
                 <li>
                     <a href="/buysell.php">BUY/SELL</a>
                     <ul class="dropdown">
-                        <li><a href="/buysell-te.php">Twisted Essences</a></li>
                         <li><a href="/buysell-hse.php">High Spell Essences</a></li>
                     </ul>
                 </li>
@@ -88,7 +87,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form method="post" action="login.php" class="form-horizontal" style="text-align: center">
+                <form method="post" action="/login.php" class="form-horizontal" style="text-align: center">
                     <div class="form-group">
                         <div style="width: 300px; margin: auto">
                             <input class="form-control" name="inputUsername" type="text" id="inputUsername"
@@ -110,8 +109,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div>
+                        <div style="text-align: left; margin: 0 100px">
                             <button type="submit" class="btn btn-default">Log In</button>
+
+                            <a class="btn btn-danger pull-right" href="signup.php">Sign up</a>
                         </div>
                     </div>
                 </form>

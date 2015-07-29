@@ -3254,25 +3254,25 @@ fieldset[disabled] .btn-success.active {
   background-color: #fff;
 }
 .btn-info {
-  color: #fff;
+  color: #000;
   background-color: #5bc0de;
-  border-color: #46b8da;
+  border-color: #00E6E6;
 }
 .btn-info:focus,
 .btn-info.focus {
   color: #fff;
   background-color: #31b0d5;
-  border-color: #1b6d85;
+  border-color: #00E6E6;
 }
 .btn-info:hover {
-  color: #fff;
+  color: #000;
   background-color: #31b0d5;
-  border-color: #269abc;
+  border-color: #00E6E6;
 }
 .btn-info:active,
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
-  color: #fff;
+  color: #000;
   background-color: #31b0d5;
   border-color: #269abc;
 }

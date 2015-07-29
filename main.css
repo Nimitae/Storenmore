@@ -42,12 +42,12 @@ hr {
 }
 h1{
     font-size: 40px;
-    margin-left: 20px !important;
+    /*margin-left: 20px !important;*/
 }
 
 h2 {
     color: #202A25;
-    margin-left: 50px !important;
+   /* margin-left: 50px !important; */
 }
 
 h3{
@@ -174,4 +174,8 @@ ul li:hover ul.dropdown{
 }
 ul li ul.dropdown li{
     display: block;
+}
+
+.usable-image{
+    height:32px;
 }

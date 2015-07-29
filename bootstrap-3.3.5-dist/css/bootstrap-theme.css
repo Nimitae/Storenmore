@@ -183,8 +183,14 @@ fieldset[disabled] .btn-success.active {
   background-image: none;
 }
 .btn-info {
-  background-color: #00E6E6 ;
-  border-color: #00E6E6 ;
+  background-image: -webkit-linear-gradient(top, #75F7F7 0%, #00E6E6 100%);
+  background-image:      -o-linear-gradient(top, #75F7F7 0%, #00E6E6 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#75F7F7), to(#00E6E6));
+  background-image:         linear-gradient(to bottom, #75F7F7 0%, #00E6E6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff0ad4e', endColorstr='#ffeb9316', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: #00E6E6;
 }
 .btn-info:hover,
 .btn-info:focus {

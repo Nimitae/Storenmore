@@ -40,23 +40,25 @@ hr {
     margin-bottom: 0px;
     padding: 0px;
 }
-h1{
+
+h1 {
     font-size: 40px;
     /*margin-left: 20px !important;*/
 }
 
 h2 {
     color: #202A25;
-   /* margin-left: 50px !important; */
+    /* margin-left: 50px !important; */
 }
 
-h3{
+h3 {
     background-color: #00223f;
     color: white;
     padding: 5px 15px;
     font-size: 15px;
 }
-h1,h2,h3,h4{
+
+h1, h2, h3, h4 {
     font-family: futura_bt_bold;
     margin: 0;
 }
@@ -80,42 +82,43 @@ h1,h2,h3,h4{
     text-align: center;
 }
 
-.bluebg{
+.bluebg {
     background-color: #00E6E6;
 }
 
-.whitebg{
+.whitebg {
     background-color: #fffffff;
 }
 
-.blackfont{
-    color:black;
+.blackfont {
+    color: black;
 }
+
 .modal-header {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
-body{
+body {
     background-image: url("http://38.media.tumblr.com/tumblr_m9amnpN9vz1rdwlp0o1_500.gif");
 }
 
-.filter-body{
+.filter-body {
     padding: 0 15px;
 }
 
-.filter-sidebar{
+.filter-sidebar {
     width: 200px;
     margin: 0px 0px 0px 50px;
     padding: 0
 }
 
-div.right{
-    position:absolute;
+div.right {
+    position: absolute;
     right: 50px;
 }
 
-.filter-header>a :hover{
+.filter-header > a :hover {
     color: #00E6E6;
 }
 
@@ -124,7 +127,14 @@ div.right{
     width: 9%;
     vertical-align: middle;
 }
-.dynamic{
+
+.s-10 {
+    height: 10%;
+    width: 10%;
+    vertical-align: middle;
+}
+
+.dynamic {
     max-width: 90%;
     height: auto;
     width: auto;
@@ -145,21 +155,23 @@ th {
     color: whitesmoke;
 }
 
-ul li{
+ul li {
     display: inline-block;
     position: relative;
     line-height: 21px;
     text-align: center;
 }
 
-ul li a{
+ul li a {
     color: white;
 }
-ul li a:hover{
+
+ul li a:hover {
     color: #000000;
     background: #00E6E6;
 }
-ul li ul.dropdown{
+
+ul li ul.dropdown {
     width: 200px; /* Set width of the dropdown */
     background: #00E6E6;
     display: none;
@@ -169,13 +181,75 @@ ul li ul.dropdown{
     padding: 5px 15px;
     font-size: 15px;
 }
-ul li:hover ul.dropdown{
-    display: block;	/* Display the dropdown */
+
+ul li:hover ul.dropdown {
+    display: block; /* Display the dropdown */
 }
-ul li ul.dropdown li{
+
+ul li ul.dropdown li {
     display: block;
 }
 
-.usable-image{
-    height:32px;
+.usable-image {
+    height: 32px;
+}
+
+.borderedImg > img {
+    border: 5px solid #e6e6e6;
+    padding: 2px
+
+}
+
+.inline-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+table.scroll tbody,
+table.scroll thead {
+    display: block;
+    border: none;
+}
+
+table.scroll tbody {
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.scroll tbody tr td:first-child,
+table.scroll thead tr th:first-child {
+    width: 15%;
+}
+
+table.scroll tbody tr td:nth-child(2),
+table.scroll thead tr th:nth-child(2) {
+    width: 45%;
+}
+
+table.scroll tbody tr td:last-child,
+table.scroll thead tr th:last-child {
+    width: 25%;
+}
+
+table.scroll tbody {
+    max-height: 142px;
+}
+
+table.scroll thead {
+    background-color: #00223f;
+}
+
+.table thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 0px solid hsl(0, 0%, 87%);
+}
+
+.table thead > tr > th, .table tbody > tr > th,
+.table tfoot > tr > th, .table thead > tr > td,
+.table tbody > tr > td, .table tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #ddd
 }

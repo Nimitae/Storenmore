@@ -24,4 +24,13 @@ class TaggingDAO
         $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $resultsArray;
     }
+
+    public function getAllTags()
+    {
+        $sql = "SELECT * FROM equiptags ORDER BY id ASC;";
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $resultSet = $dbh->query($sql);
+        $resultsArray = $resultSet->fetchAll(PDO::FETCH_ASSOC);
+        return $resultsArray;
+    }
 }

@@ -2,6 +2,7 @@
 require_once('classes/uploaded.class.php');
 require_once('classes/tagging.class.php');
 require_once('classes/user.class.php');
+require_once('classes/equiptag.class.php');
 require_once('data/uploaded.DAO.php');
 require_once('data/tagging.DAO.php');
 require_once('data/user.DAO.php');
@@ -15,10 +16,20 @@ class UserService
         $userResults = $userDAO->getUploadedByAttributeValuesArray('username', array($username));
         $userArray = $this->createUserArray($userResults);
         $foundUser = array_pop($userArray);
+
         if ($foundUser) {
             return $foundUser;
         } else {
             return false;
+        }
+    }
+
+    public function passwordsAreIdentical($password, $repeat)
+    {
+        if ($password != $repeat) {
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -109,6 +120,27 @@ class UserService
         return $isValidImage;
     }
 
+    public function getAllTags()
+    {
+        $taggingDAO = new TaggingDAO();
+        $equipTagResults = $taggingDAO->getAllTags();
+        $equipTagArray = $this->createEquipTagArray($equipTagResults);
+        return $equipTagArray;
+    }
+
+    public function categoriseEquipTag($equipTagArray)
+    {
+        $categorisedEquipTag = array();
+        foreach ($equipTagArray as $equipTag) {
+            if (!isset($categorisedEquipTag[$equipTag->tagCategory])) {
+                $categorisedEquipTag[$equipTag->tagCategory] = array();
+            }
+            $categorisedEquipTag[$equipTag->tagCategory][] = $equipTag;
+        }
+        return $categorisedEquipTag;
+    }
+
+
     private function createUploadedArray($uploadedResults)
     {
         $uploadedArray = array();
@@ -120,11 +152,7 @@ class UserService
         }
         $taggingDAO = new TaggingDAO();
         $taggingResults = $taggingDAO->getTaggingByAttributeValuesArray('equipID', $equipIDArray);
-        foreach ($taggingResults as $row) {
-            $newTagging = new Tagging($row['tagID'], $row['equipID']);
-            $uploadedArray[$row['equipID']]->taggingArray[] = $newTagging;
-        }
-        return $uploadedArray;
+        return $this->createTaggingArray($taggingResults, $uploadedArray);
     }
 
     private function createUserArray($userResults)
@@ -135,5 +163,25 @@ class UserService
             $userArray[$row['username']] = $newUser;
         }
         return $userArray;
+    }
+
+    private function createEquipTagArray($equipTagResults)
+    {
+        $equipTagArray = array();
+        foreach ($equipTagResults as $row) {
+            $newEquipTag = new EquipTag($row['id'], $row['value'], $row['tagCategory']);
+            $equipTagArray[$row['id']] = $newEquipTag;
+        }
+        return $equipTagArray;
+    }
+
+
+    private function createTaggingArray($taggingResults, $uploadedArray = array())
+    {
+        foreach ($taggingResults as $row) {
+            $newTagging = new Tagging($row['tagID'], $row['equipID']);
+            $uploadedArray[$row['equipID']]->taggingArray[] = $newTagging;
+        }
+        return $uploadedArray;
     }
 }

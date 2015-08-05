@@ -9,3 +9,8 @@ define("UPLOADED_DELETED", 3);
 
 define("BUY_ORDER_TYPE", 1);
 define("SELL_ORDER_TYPE", 2);
+
+define("TAG_TYPE_SET", 1);
+define("TAG_TYPE_CLASS", 2);
+define("TAG_TYPE_WEAPON", 3);
+define("TAG_TYPE_ARMORS", 4);

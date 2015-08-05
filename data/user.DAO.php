@@ -16,7 +16,7 @@ class UserDAO
                 $sqlParams[] = $value;
             }
         }
-        $sql .= ");";
+        $sql .= ";";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sql);
         $stmt->execute($sqlParams);

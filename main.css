@@ -6,8 +6,9 @@ hr {
     border: none;
     height: 1px;
     /* Set the hr color */
-    color: #333; /* old IE */
-    background-color: #333; /* Modern Browsers */
+    color: white; /* old IE */
+    background-color: white; /* Modern Browsers */
+    margin: 5px 0;
 }
 
 @font-face {
@@ -143,6 +144,11 @@ div.right {
     width: 50%;
     vertical-align: middle;
 }
+.s-120 {
+    height: 110%;
+    width: 110%;
+    vertical-align: middle;
+}
 
 .dynamic {
     max-width: 90%;
@@ -182,12 +188,11 @@ ul li a:hover {
 }
 
 ul li ul.dropdown {
-    width: 200px; /* Set width of the dropdown */
+    width: 150px; /* Set width of the dropdown */
     background: #00E6E6;
     display: none;
     position: absolute;
     z-index: 999;
-    left: -45px;
     padding: 5px 15px;
     font-size: 15px;
 }
@@ -262,4 +267,8 @@ table.scroll thead {
     line-height: 1.428571429;
     vertical-align: top;
     border-top: 1px solid #ddd
+}
+
+.divider{
+
 }

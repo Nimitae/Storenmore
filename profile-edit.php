@@ -5,10 +5,13 @@ require_once("forAllPages.php");
 include("partials/header.partial.php");
 
 ?>
-
-<div class="container" style="background-color: white; width:60%; padding:15px">
+<div style="height: 40px"></div>
+<h1 style="margin-left: 30px"><span class="glyphicon glyphicon-edit"></span> Settings</h1>
+<div style="height: 20px"></div>
+<div class="container" style="background-color: white; width:50%; padding:15px; float: left; margin-left: 40px">
     <form class="form-horizontal">
-
+        Leave any text box blank if you do not wish to display those details on your profile page.
+        <div style="height: 30px"></div>
         <div class="form-group">
             <label for="userID" class="col-sm-3">Email</label>
 

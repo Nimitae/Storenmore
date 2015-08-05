@@ -76,8 +76,6 @@ include("partials/header.partial.php");
             var j,k;
             for (j =0; j <tags.length;j++) {
                 for (k =0; k < filtervalues.length;k++) {
-                    console.log(tags[j]);
-                    console.log(filtervalues[k]);
                     if (tags[j] == filtervalues[k]) {
                         filterpasses++;
 

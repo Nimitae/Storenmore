@@ -10,7 +10,7 @@ include("partials/header.partial.php");
 
     <div class="col-sm-12">
 
-        <div class="col-sm-5" style="background-color: white; height: 180px; padding: 0 !important;">
+        <div class="col-sm-4" style="background-color: white; height: 180px; padding: 0 !important;">
 
             <div>
                 <div class="container-fluid inline-block" style="padding: 15px;">
@@ -19,7 +19,7 @@ include("partials/header.partial.php");
                     </div>
                 </div>
                 <div class="container-fluid inline-block" style="padding: 15px 0; height: 180px">
-                    <h2>123456789ABCD</h2>
+                    <h4>123456789ABCD</h4>
                     World:<br>
                     IGN:<br>
                     Mobile:<br>
@@ -28,19 +28,23 @@ include("partials/header.partial.php");
             </div>
 
 
-            <div style="height: 20px"></div>
+            <div style="height: 10px"></div>
 
-            <div class="container-fluid" style="background-color: white">
+            <div class="container-fluid" style="background-color: white; padding: 15px">
+                <div class="container">
+                    <h4> 100% Positive</h4>
+                     26 Votes
+                </div>
                 <div class="btn-group">
                     <button class="btn btn-default"><img src="http://cdn.flaticon.com/png/256/30048.png"
-                                                         style="height: 28px">
+                                                         style="height: 28px"> 26
                     </button>
                     <button class="btn btn-default"><img src="http://cdn.flaticon.com/png/256/30197.png"
-                                                         style="height: 28px">
+                                                         style="height: 28px"> 0
                     </button>
                 </div>
             </div>
-            <div style="height: 20px"></div>
+            <div style="height: 10px"></div>
 
             <div class="container-fluid" style="background-color:white; padding: 0; max-height: 200px;">
                 <table class="table table-responsive scroll">
@@ -93,6 +97,23 @@ include("partials/header.partial.php");
                 </table>
             </div>
         </div>
+
+
+        <div class="col-sm-8">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Title of goods</div>
+                    <div class="panel-body">Description of goods</div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Title of goods</div>
+                    <div class="panel-body">Description of goods</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -102,14 +123,14 @@ include("partials/header.partial.php");
         colWidth;
 
     // Adjust the width of thead cells when window resizes
-    $(window).resize(function() {
+    $(window).resize(function () {
         // Get the tbody columns width array
-        colWidth = $bodyCells.map(function() {
+        colWidth = $bodyCells.map(function () {
             return $(this).width();
         }).get();
 
         // Set the width of thead columns
-        $table.find('thead tr').children().each(function(i, v) {
+        $table.find('thead tr').children().each(function (i, v) {
             $(v).width(colWidth[i]);
         });
     }).resize(); // Trigger resize handler</script>

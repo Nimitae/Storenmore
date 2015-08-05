@@ -138,6 +138,12 @@ div.right {
     vertical-align: middle;
 }
 
+.s-50 {
+    height: 50%;
+    width: 50%;
+    vertical-align: middle;
+}
+
 .dynamic {
     max-width: 90%;
     height: auto;

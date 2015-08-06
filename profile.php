@@ -102,7 +102,7 @@ include("partials/header.partial.php");
         <div class="col-sm-8">
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Title of goods</div>
+                    <div class="panel-heading">Title of goods <img src="images/pen29.png"><img src="images/delete85.png"> </div>
                     <div class="panel-body">Description of goods</div>
                 </div>
             </div>

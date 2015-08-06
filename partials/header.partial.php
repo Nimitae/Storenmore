@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.5-dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style>
@@ -37,13 +37,10 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/browse.php">BROWSE</a>
+                    <a href="browse.php">BROWSE</a>
                 </li>
                 <li>
-                    <a href="/buysell.php">BUY/SELL</a>
-                    <ul class="dropdown">
-                        <li><a href="/buysell-hse.php">High Spell Essences</a></li>
-                    </ul>
+                    <a href="buysell.php">STANDARD ITEMS</a>
                 </li>
                 <li>
                     <form action="" class="navbar-form navbar-right">

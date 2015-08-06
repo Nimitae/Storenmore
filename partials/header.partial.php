@@ -48,7 +48,7 @@
                     </form>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right pull-right">
 
 
                 <?php if (!isset($_SESSION['username'])) : ?>
@@ -58,7 +58,15 @@
 
                 <?php else : ?>
                     <li><a href="#upload" data-toggle="modal">UPLOAD</a></li>
-                    <li><a href="logout.php">LOGOUT (<?php print $_SESSION['username'] ?>)</a></li>
+                    <li><a href=""><?php print $_SESSION['username'] ?><b class="caret"></b></a>
+                        <ul class="dropdown">
+                            <li><a href="profile.php">Profile</a></li>
+                            <li><a href="profile-edit.php">Edit Profile</a></li>
+                            <hr class="divider">
+                            <li><a href="logout.php"><span class="glyphicon glyphicon-lock"></span> LOGOUT</a></li>
+                        </ul>
+                    </li>
+
                 <?php endif; ?>
 
             </ul>
@@ -76,7 +84,7 @@
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-<?php include('views/login.modal.view.php');?>
+        <?php include('views/login.modal.view.php'); ?>
 
     </div>
 </div>

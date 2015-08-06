@@ -9,7 +9,9 @@ class TaggingDAO
         $sqlParams = array();
         $sql = "SELECT * FROM tagging
                        WHERE " . $attribute . " = ?";
-        $sqlParams[] = $attributeValue[0];
+        if (isset($attributeValue[0])) {
+            $sqlParams[] = $attributeValue[0];
+
         if (count($attributeValue) > 1) {
             array_shift($attributeValue);
             foreach ($attributeValue as $value) {
@@ -23,6 +25,9 @@ class TaggingDAO
         $stmt->execute($sqlParams);
         $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $resultsArray;
+        } else {
+            return array();
+        }
     }
 
     public function getAllTags()

@@ -4,24 +4,29 @@ class UserDAO
 {
     public function getUploadedByAttributeValuesArray($attribute, $attributeValue)
     {
-        $sqlParams=array();
+        $sqlParams = array();
         $sql = "SELECT *
-                        FROM users
+                        FROM uploaded
                        WHERE " . $attribute . " = ?";
-        $sqlParams[] = $attributeValue[0];
-        if (count($attributeValue) > 1) {
-            array_shift($attributeValue);
-            foreach ($attributeValue as $value) {
-                $sql .= "OR " . $attribute . " = ?";
-                $sqlParams[] = $value;
+        if (isset($attributeValue[0])) {
+            $sqlParams[] = $attributeValue[0];
+
+            if (count($attributeValue) > 1) {
+                array_shift($attributeValue);
+                foreach ($attributeValue as $value) {
+                    $sql .= "OR " . $attribute . " = ?";
+                    $sqlParams[] = $value;
+                }
             }
+            $sql .= ";";
+            $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute($sqlParams);
+            $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultsArray;
+        } else {
+            return array();
         }
-        $sql .= ";";
-        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute($sqlParams);
-        $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $resultsArray;
     }
 
     public function getUserByUsernameAndPassword($username, $password)
@@ -61,6 +66,86 @@ class UserDAO
         } else {
             $logDAO->logPreparedStatement('INSERT', $stmt, $binds, 'FAILED');
             return false;
+        }
+    }
+
+    public function getPersonalisationByAttributeValuesArray($attribute, $attributeValue)
+    {
+        $sqlParams = array();
+        $sql = "SELECT *
+                        FROM personalisation
+                       WHERE " . $attribute . " = ?";
+        if (isset($attributeValue[0])) {
+            $sqlParams[] = $attributeValue[0];
+            if (count($attributeValue) > 1) {
+                array_shift($attributeValue);
+                foreach ($attributeValue as $value) {
+                    $sql .= "OR " . $attribute . " = ?";
+                    $sqlParams[] = $value;
+                }
+            }
+            $sql .= ";";
+            $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute($sqlParams);
+            $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultsArray;
+        } else {
+            return array();
+        }
+    }
+
+    public function getContactsByAttributeValuesArray($attribute, $attributeValue)
+    {
+        $sqlParams = array();
+        $sql = "SELECT *
+                        FROM contact
+                       WHERE " . $attribute . " = ?";
+        if (isset($attributeValue[0])) {
+            $sqlParams[] = $attributeValue[0];
+
+            if (count($attributeValue) > 1) {
+                array_shift($attributeValue);
+                foreach ($attributeValue as $value) {
+                    $sql .= "OR " . $attribute . " = ?";
+                    $sqlParams[] = $value;
+                }
+            }
+            $sql .= ";";
+            $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute($sqlParams);
+            $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultsArray;
+        } else {
+            return array();
+        }
+    }
+
+    public function getUserByAttributeValuesArray($attribute, $attributeValue)
+    {
+        $sqlParams = array();
+        $sql = "SELECT *
+                        FROM users
+                       WHERE " . $attribute . " = ?";
+        if (isset($attributeValue[0])) {
+            $sqlParams[] = $attributeValue[0];
+
+            if (count($attributeValue) > 1) {
+                array_shift($attributeValue);
+                foreach ($attributeValue as $value) {
+                    $sql .= "OR " . $attribute . " = ?";
+                    $sqlParams[] = $value;
+                }
+            }
+            $sql .= ";";
+            $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute($sqlParams);
+            $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultsArray;
+        } else {
+            return array();
         }
     }
 }

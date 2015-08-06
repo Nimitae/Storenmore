@@ -3,10 +3,12 @@ require_once('classes/uploaded.class.php');
 require_once('classes/tagging.class.php');
 require_once('classes/user.class.php');
 require_once('classes/equiptag.class.php');
+require_once('classes/contact.class.php');
+require_once('classes/personalisation.class.php');
 require_once('data/uploaded.DAO.php');
 require_once('data/tagging.DAO.php');
 require_once('data/user.DAO.php');
-
+require_once('services/goods.service.php');
 
 class UserService
 {
@@ -37,6 +39,19 @@ class UserService
     {
         $userDAO = new UserDAO();
         $userResults = $userDAO->getUserByUsernameAndPassword($username, $password);
+        $userArray = $this->createUserArray($userResults);
+        $foundUser = array_pop($userArray);
+        if ($foundUser) {
+            return $foundUser;
+        } else {
+            return false;
+        }
+    }
+
+    public function getUserByUsername($username)
+    {
+        $userDAO = new UserDAO();
+        $userResults = $userDAO->getUserByAttributeValuesArray('username', array($username));
         $userArray = $this->createUserArray($userResults);
         $foundUser = array_pop($userArray);
         if ($foundUser) {
@@ -158,9 +173,38 @@ class UserService
     private function createUserArray($userResults)
     {
         $userArray = array();
+        $usernameArray = array();
         foreach ($userResults as $row) {
             $newUser = new User($row['username'], $row['password'], $row['email'], $row['referrer'], $row['referlink'], $row['role']);
             $userArray[$row['username']] = $newUser;
+            $usernameArray[] = $row['username'];
+        }
+        $userDAO = new UserDAO();
+        $personalisationResults = $userDAO->getPersonalisationByAttributeValuesArray('username', $usernameArray);
+        foreach ($personalisationResults as $row) {
+            $newPersonalistion = new Personalisation($row['username'], $row['avatarURL'], $row['biography']);
+            $userArray[$row['username']]->personalisation = $newPersonalistion;
+        }
+        $contactResults = $userDAO->getContactsByAttributeValuesArray('username', $usernameArray);
+        foreach ($contactResults as $row) {
+            $newContact = new Contact($row['id'], $row['username'], $row['contactType'], $row['value']);
+            $userArray[$row['username']]->contactContainer[$row['contactType']][] = $newContact;
+        }
+        $uploadedResults = $userDAO->getUploadedByAttributeValuesArray('username', $usernameArray);
+        foreach ($uploadedResults as $row) {
+            $newUploaded = new Uploaded($row['id'], $row['name'], $row['imageURL'], $row['username'], $row['realPrice'], $row['mesoPrice'], $row['uploadTimestamp'], $row['status'], $row['statusTimestamp'], $row['description']);
+            $userArray[$row['username']]->uploadedContainer[$row['id']] = $newUploaded;
+        }
+        $goodsService = new GoodsService();
+        $ordersArray = $goodsService->getOrdersByUsernameValues($usernameArray);
+        foreach ($ordersArray as $username => $userOrderArray) {
+            foreach ($userOrderArray as $order) {
+                if ($order->orderType == BUY_ORDER_TYPE) {
+                    $userArray[$username]->buyOrdersContainer[] = $order;
+                } else if ($order->orderType == SELL_ORDER_TYPE) {
+                    $userArray[$username]->sellOrdersContainer[] = $order;
+                }
+            }
         }
         return $userArray;
     }
@@ -174,7 +218,6 @@ class UserService
         }
         return $equipTagArray;
     }
-
 
     private function createTaggingArray($taggingResults, $uploadedArray = array())
     {

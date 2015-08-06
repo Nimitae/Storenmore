@@ -19,7 +19,9 @@ class UploadedDAO
         $sql = "SELECT *
                         FROM uploaded
                        WHERE status <> 3 AND (" . $attribute . " = ?";
-        $sqlParams[] = $attributeValue[0];
+        if (isset($attributeValue[0])) {
+            $sqlParams[] = $attributeValue[0];
+
         if (count($attributeValue) > 1) {
             array_shift($attributeValue);
             foreach ($attributeValue as $value) {
@@ -33,6 +35,9 @@ class UploadedDAO
         $stmt->execute($sqlParams);
         $resultsArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $resultsArray;
+        } else {
+            return array();
+        }
     }
 
     public function createUploaded($uploaded)

@@ -33,21 +33,37 @@ class GoodsService
         return $orderDAO->createOrder($order);
     }
 
+    public function getOrdersByUsernameValues($usernameArray)
+    {
+        $orderDAO = new OrderDAO();
+        $orderResults = $orderDAO->getOrderByAttributeValuesArray('username', $usernameArray);
+        $ordersArray = $this->createOrdersArray($orderResults);
+        return $ordersArray;
+    }
+
+    private function createOrdersArray($orderResults)
+    {
+        $ordersArray = array();
+        foreach ($orderResults as $row) {
+            $newOrder = new Order($row['id'], $row['goodsID'], $row['username'], $row['orderType'], $row['priceType'], $row['price'], $row['quantity'], $row['orderTimestamp'], $row['status'], $row['statusTimestamp']);
+            $ordersArray[$row['username']][] = $newOrder;
+        }
+        return $ordersArray;
+    }
 
     private function createGoodArray($goodResults)
     {
         $orderDAO = new OrderDAO();
         $goodArray = array();
         $goodIDs = array();
-        foreach ($goodResults as $row)
-        {
+        foreach ($goodResults as $row) {
             $newGood = new Good($row['id'], $row['name'], $row['imageURL'], $row['description']);
             $goodArray[$row['id']] = $newGood;
             $goodIDs = $row['id'];
         }
         $orderResults = $orderDAO->getOrderByAttributeValuesArray('goodsID', $goodIDs);
         foreach ($orderResults as $row) {
-            $newOrder = new Order($row['id'],$row['goodsID'],$row['username'],$row['orderType'],$row['priceType'], $row['price'], $row['quantity'],$row['orderTimestamp'],$row['status'],$row['statusTimestamp']);
+            $newOrder = new Order($row['id'], $row['goodsID'], $row['username'], $row['orderType'], $row['priceType'], $row['price'], $row['quantity'], $row['orderTimestamp'], $row['status'], $row['statusTimestamp']);
             if ($newOrder->orderType == BUY_ORDER_TYPE) {
                 $goodArray[$row['goodsID']]->buyOrdersContainer[$row['id']] = $newOrder;
             } else if ($newOrder->orderType == SELL_ORDER_TYPE) {

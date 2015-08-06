@@ -9,7 +9,7 @@ if (isset($_SESSION['username']) && isset($_POST['itemName']) && isset($_FILES))
         $ext = pathinfo($_FILES['uploadedFile']['name'], PATHINFO_EXTENSION);
         $target_file = $target_dir . uniqid(). $_FILES['uploadedFile']['name'];
         move_uploaded_file($_FILES["uploadedFile"]["tmp_name"], $target_file);
-        $newUploaded = new Uploaded(NULL, $_POST['itemName'], $target_file, $_SESSION['username'], $_POST['realPrice'] . ' ' . $_POST['currency'], $_POST['mesoPrice'], NULL, 1, date('Y-m-d G:i:s', time()), 'tempdesc',);
+        $newUploaded = new Uploaded(NULL, $_POST['itemName'], $target_file, $_SESSION['username'], $_POST['realPrice'] . ' ' . $_POST['currency'], $_POST['mesoPrice'], NULL, 1, date('Y-m-d G:i:s', time()), 'tempdesc',1);
         $uploadSuccess = $userService->saveNewUploaded($newUploaded);
     }
 }

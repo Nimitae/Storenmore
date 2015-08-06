@@ -43,7 +43,7 @@ class UploadedDAO
     public function createUploaded($uploaded)
     {
         /** @var Uploaded $uploaded */
-        $sqlInsert = "INSERT INTO uploaded VALUES(NULL, :name, :imageURL, :username, :realPrice, :mesoPrice, NULL, :status, :statusTimestamp, :description);";
+        $sqlInsert = "INSERT INTO uploaded VALUES(NULL, :name, :imageURL, :username, :realPrice, :mesoPrice, NULL, :status, :statusTimestamp, :description, :serverID);";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sqlInsert);
         $stmt->bindParam(':name', $uploaded->name);
@@ -54,6 +54,7 @@ class UploadedDAO
         $stmt->bindParam(':status', $uploaded->status);
         $stmt->bindParam(':statusTimestamp', $uploaded->statusTimestamp);
         $stmt->bindParam(':description', $uploaded->description);
+        $stmt->bindParam(':serverID', $uploaded->serverID);
         $binds = array(
             ":name" => $uploaded->name,
             ":imageURL" => $uploaded->imageURL,
@@ -63,6 +64,7 @@ class UploadedDAO
             ":status" => $uploaded->status,
             ":statusTimestamp" => $uploaded->statusTimestamp,
             ":description" => $uploaded->description,
+            ":serverID" => $uploaded->serverID
         );
         $logDAO = new LogDAO();
         if ($stmt->execute()) {
@@ -84,7 +86,8 @@ class UploadedDAO
                         mesoPrice = :mesoPrice,
                         status = :status,
                         statusTimestamp = :statusTimestamp,
-                        description = :description WHERE
+                        description = :description,
+                        serverID = :serverID WHERE
                         id = :id;";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sqlInsert);
@@ -97,6 +100,7 @@ class UploadedDAO
         $stmt->bindParam(':statusTimestamp', $uploaded->statusTimestamp);
         $stmt->bindParam(':description', $uploaded->description);
         $stmt->bindParam(':id', $uploaded->id);
+        $stmt->bindParam(':serverID', $uploaded->serverID);
         $binds = array(
             ":name" => $uploaded->name,
             ":imageURL" => $uploaded->imageURL,
@@ -106,6 +110,7 @@ class UploadedDAO
             ":status" => $uploaded->status,
             ":statusTimestamp" => $uploaded->statusTimestamp,
             ":description" => $uploaded->description,
+            ":serverID" => $uploaded->serverID,
             ":id" => $uploaded->id
         );
         $logDAO = new LogDAO();

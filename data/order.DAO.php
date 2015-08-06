@@ -34,7 +34,7 @@ class OrderDAO
     public function createOrder($order)
     {
         /** @var Order $order */
-        $sqlInsert = "INSERT INTO orders VALUES(NULL, :goodsID, :username, :orderType, :priceType, :price, :quantity, NULL, :status, :statusTimestamp);";
+        $sqlInsert = "INSERT INTO orders VALUES(NULL, :goodsID, :username, :orderType, :priceType, :price, :quantity, NULL, :status, :statusTimestamp, :serverID);";
         $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         $stmt = $dbh->prepare($sqlInsert);
         $stmt->bindParam(':goodsID', $order->goodsID);
@@ -45,6 +45,7 @@ class OrderDAO
         $stmt->bindParam(':quantity', $order->quantity);
         $stmt->bindParam(':status', $order->status);
         $stmt->bindParam(':statusTimestamp', $order->statusTimestamp);
+        $stmt->bindParam(':serverID', $order->serverID);
         $binds = array(
             ":goodsID" => $order->goodsID,
             ":username" => $order->username,
@@ -54,6 +55,7 @@ class OrderDAO
             ":quantity" => $order->quantity,
             ":status" => $order->status,
             ":statusTimestamp" => $order->statusTimestamp,
+            ":serverID" => $order->serverID
         );
         $logDAO = new LogDAO();
         if ($stmt->execute()) {
@@ -88,6 +90,7 @@ class OrderDAO
         $stmt->bindParam(':status', $order->status);
         $stmt->bindParam(':statusTimestamp', $order->statusTimestamp);
         $stmt->bindParam(':id', $order->id);
+        $stmt->bindParam(':serverID', $order->serverID);
         $binds = array(
             ":goodsID" => $order->goodsID,
             ":username" => $order->username,
@@ -98,6 +101,7 @@ class OrderDAO
             ":status" => $order->status,
             ":statusTimestamp" => $order->statusTimestamp,
             ":id" => $order->id,
+            ":serverID" => $order->serverID
         );
         $logDAO = new LogDAO();
         if ($stmt->execute()) {

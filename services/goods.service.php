@@ -45,7 +45,7 @@ class GoodsService
     {
         $ordersArray = array();
         foreach ($orderResults as $row) {
-            $newOrder = new Order($row['id'], $row['goodsID'], $row['username'], $row['orderType'], $row['priceType'], $row['price'], $row['quantity'], $row['orderTimestamp'], $row['status'], $row['statusTimestamp']);
+            $newOrder = new Order($row['id'], $row['goodsID'], $row['username'], $row['orderType'], $row['priceType'], $row['price'], $row['quantity'], $row['orderTimestamp'], $row['status'], $row['statusTimestamp'],$row['serverID']);
             $ordersArray[$row['username']][] = $newOrder;
         }
         return $ordersArray;
@@ -63,7 +63,7 @@ class GoodsService
         }
         $orderResults = $orderDAO->getOrderByAttributeValuesArray('goodsID', $goodIDs);
         foreach ($orderResults as $row) {
-            $newOrder = new Order($row['id'], $row['goodsID'], $row['username'], $row['orderType'], $row['priceType'], $row['price'], $row['quantity'], $row['orderTimestamp'], $row['status'], $row['statusTimestamp']);
+            $newOrder = new Order($row['id'], $row['goodsID'], $row['username'], $row['orderType'], $row['priceType'], $row['price'], $row['quantity'], $row['orderTimestamp'], $row['status'], $row['statusTimestamp'],$row['serverID']);
             if ($newOrder->orderType == BUY_ORDER_TYPE) {
                 $goodArray[$row['goodsID']]->buyOrdersContainer[$row['id']] = $newOrder;
             } else if ($newOrder->orderType == SELL_ORDER_TYPE) {

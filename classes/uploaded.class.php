@@ -12,10 +12,12 @@ class Uploaded
     var $status;
     var $statusTimestamp;
     var $description;
+    var $serverID;
 
     var $taggingArray;
 
-    public function __construct($id, $name, $imageURL, $username, $realPrice, $mesoPrice, $uploadTimestamp, $status, $statusTimestamp,$description )
+
+    public function __construct($id, $name, $imageURL, $username, $realPrice, $mesoPrice, $uploadTimestamp, $status, $statusTimestamp, $description, $serverID)
     {
         $this->id = $id;
         $this->name = $name;
@@ -28,6 +30,7 @@ class Uploaded
         $this->status = $status;
         $this->statusTimestamp = $statusTimestamp;
         $this->taggingArray = array();
+        $this->serverID = $serverID;
     }
 
     public function isValidUploaded($isNew)

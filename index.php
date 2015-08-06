@@ -32,6 +32,16 @@ include("partials/header.partial.php");
                 </div>
             </div>
         </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Title of goods</div>
+                <div class="panel-body"><img src="http://i57.tinypic.com/v5eux5.jpg"></div>
+                <div class="panel-footer">
+                    Price:##
+                    <a href=""><img src="http://cdn.flaticon.com/svg/23/23912.svg" class="s-9 pull-right"></a>
+                </div>
+            </div>
+        </div>
     </div>
 
 

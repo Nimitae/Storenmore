@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/index.php">thebackyard</a>
+            <a class="navbar-brand" href="index.php">thebackyard</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -55,28 +55,19 @@
                     <li><a data-toggle="modal" href="#myModal" class="button"><span
                                 class="glyphicon glyphicon-lock"></span>LOGIN
                         </a></li>
-
                 <?php else : ?>
                     <li><a href="#upload" data-toggle="modal">UPLOAD</a></li>
-                    <li><a href=""><?php print $_SESSION['username'] ?><b class="caret"></b></a>
+                    <li><a href="profile.php?u=<?php print $_SESSION['username'];?>"><?php print $_SESSION['username'] ?><b class="caret"></b></a>
                         <ul class="dropdown">
-                            <li><a href="profile.php">Profile</a></li>
                             <li><a href="profile-edit.php">Edit Profile</a></li>
                             <hr class="divider">
-                            <li><a href="logout.php"><span class="glyphicon glyphicon-lock"></span> LOGOUT</a></li>
+                            <li><a href="logout.php"><span class="glyphicon glyphicon-lock"></span>LOGOUT</a></li>
                         </ul>
                     </li>
-
                 <?php endif; ?>
-
             </ul>
-
-
         </div>
-
     </div>
-
-
 </div>
 <div style="height:40px"></div>
 <br>

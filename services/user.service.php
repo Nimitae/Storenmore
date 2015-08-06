@@ -161,7 +161,7 @@ class UserService
         $uploadedArray = array();
         $equipIDArray = array();
         foreach ($uploadedResults as $row) {
-            $newUploaded = new Uploaded($row['id'], $row['name'], $row['imageURL'], $row['username'], $row['realPrice'], $row['mesoPrice'], $row['uploadTimestamp'], $row['status'], $row['statusTimestamp'], $row['description']);
+            $newUploaded = new Uploaded($row['id'], $row['name'], $row['imageURL'], $row['username'], $row['realPrice'], $row['mesoPrice'], $row['uploadTimestamp'], $row['status'], $row['statusTimestamp'], $row['description'],$row['serverID']);
             $uploadedArray[$row['id']] = $newUploaded;
             $equipIDArray[] = $row['id'];
         }
@@ -187,12 +187,12 @@ class UserService
         }
         $contactResults = $userDAO->getContactsByAttributeValuesArray('username', $usernameArray);
         foreach ($contactResults as $row) {
-            $newContact = new Contact($row['id'], $row['username'], $row['contactType'], $row['value']);
+            $newContact = new Contact($row['id'], $row['username'], $row['contactType'], $row['value'], $row['value2'], $row['value3']);
             $userArray[$row['username']]->contactContainer[$row['contactType']][] = $newContact;
         }
         $uploadedResults = $userDAO->getUploadedByAttributeValuesArray('username', $usernameArray);
         foreach ($uploadedResults as $row) {
-            $newUploaded = new Uploaded($row['id'], $row['name'], $row['imageURL'], $row['username'], $row['realPrice'], $row['mesoPrice'], $row['uploadTimestamp'], $row['status'], $row['statusTimestamp'], $row['description']);
+            $newUploaded = new Uploaded($row['id'], $row['name'], $row['imageURL'], $row['username'], $row['realPrice'], $row['mesoPrice'], $row['uploadTimestamp'], $row['status'], $row['statusTimestamp'], $row['description'],$row['serverID']);
             $userArray[$row['username']]->uploadedContainer[$row['id']] = $newUploaded;
         }
         $goodsService = new GoodsService();

@@ -7,8 +7,8 @@ $userService = new UserService();
 $goodsService = new GoodsService();
 $goodsContainer = $goodsService->getAllGoods();
 $userFound = false;
-if (isset($_GET['username'])) {
-    $browsedUser = $userService->getUserByUsername($_GET['username']);
+if (isset($_GET['u'])) {
+    $browsedUser = $userService->getUserByUsername($_GET['u']);
     if ($browsedUser) {
         $userFound = true;
     } else {

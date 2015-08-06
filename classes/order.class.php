@@ -12,8 +12,9 @@ class Order
     var $orderTimestamp;
     var $status;
     var $statusTimestamp;
+    var $serverID;
 
-    public function __construct($id, $goodsID, $username, $orderType, $priceType, $price, $quantity, $orderTimestamp, $status, $statusTimestamp)
+    public function __construct($id, $goodsID, $username, $orderType, $priceType, $price, $quantity, $orderTimestamp, $status, $statusTimestamp, $serverID)
     {
         $this->id = $id;
         $this->goodsID = $goodsID;
@@ -25,5 +26,6 @@ class Order
         $this->orderTimestamp = $orderTimestamp;
         $this->status = $status;
         $this->statusTimestamp = $statusTimestamp;
+        $this->serverID = $serverID;
     }
 }

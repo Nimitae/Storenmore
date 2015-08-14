@@ -144,6 +144,7 @@ div.right {
     width: 50%;
     vertical-align: middle;
 }
+
 .s-120 {
     height: 110%;
     width: 110%;
@@ -307,6 +308,11 @@ table.orders-table thead tr th:last-child {
     font-size: large;
     text-align: center;
 }
-.divider{
 
+.divider {
+
+}
+
+.weapons {
+    height: 750px;
 }

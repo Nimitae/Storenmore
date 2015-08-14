@@ -42,11 +42,6 @@
                 <li>
                     <a href="buysell.php">STANDARD ITEMS</a>
                 </li>
-                <li>
-                    <form action="" class="navbar-form navbar-right">
-                        <input type="text" class="form-control" placeholder="Search...">
-                    </form>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right pull-right">
 

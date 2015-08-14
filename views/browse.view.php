@@ -11,6 +11,15 @@ include("partials/header.partial.php");
 
 <br><br>
 <div class="col-sm-3">
+    <h2 class="filter-sidebar" style="font-size: 25px">SEARCH</h2>
+
+    <div class="container-fluid filter-sidebar" style="background-color: white;">
+        <form method="post">
+            <input type="text" name="search" class="form-control" placeholder="Search..." value="<?php isset($_POST['search']) ? print $_POST['search'] : print "";?>">
+        </form>
+    </div>
+    <br>
+
     <h2 class="filter-sidebar" style="font-size: 25px">FILTER BY</h2>
 
     <div class="container-fluid filter-sidebar" style="background-color: white;">
@@ -20,7 +29,7 @@ include("partials/header.partial.php");
                     <h3><?php print $categoryType[$categoryID]; ?></h3></a>
             </div>
             <div class="filter-body collapse in" id="<?php print $categoryType[$categoryID]; ?>">
-                <?php foreach ($equipTags as $tagID=>$equipTag) : ?>
+                <?php foreach ($equipTags as $tagID => $equipTag) : ?>
                     <div class="checkbox">
                         <label draggable="true">
                             <input type="checkbox" value="<?php print $equipTag->value; ?>"
@@ -35,13 +44,11 @@ include("partials/header.partial.php");
 
 <div class="col-sm-9" style="top: 25px">
     <div class="col-sm-12">
-
         <?php foreach ($uploadedContainer as $uploaded) : ?>
-            <div class="col-sm-4 weapons nopadding-right" id="uploaded_<?php print $uploaded->id;?>">
-               <?php include('views/uploadedpanel.view.php');?>
+            <div class="col-sm-4 weapons nopadding-right" id="uploaded_<?php print $uploaded->id; ?>">
+                <?php include('views/uploadedpanel.view.php'); ?>
             </div>
         <?php endforeach; ?>
-
     </div>
 </div>
 
@@ -51,15 +58,15 @@ include("partials/header.partial.php");
         var taggroup = $("[id*=uploadtag]");
         var filtervalues = [];
         var i;
-        for (i =0; i < checkedBoxes.length; i++) {
+        for (i = 0; i < checkedBoxes.length; i++) {
             filtervalues.push(checkedBoxes[i].value);
         }
-        for (i =0; i < taggroup.length; i++) {
+        for (i = 0; i < taggroup.length; i++) {
             var filterpasses = 0;
             var tags = taggroup[i].innerText.split(' ');
-            var j,k;
-            for (j =0; j <tags.length;j++) {
-                for (k =0; k < filtervalues.length;k++) {
+            var j, k;
+            for (j = 0; j < tags.length; j++) {
+                for (k = 0; k < filtervalues.length; k++) {
                     if (tags[j] == filtervalues[k]) {
                         filterpasses++;
 

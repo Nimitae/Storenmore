@@ -6,7 +6,7 @@
         </h4>
     </div>
     <div class="modal-body">
-        <form method="post" action="/login.php" class="form-horizontal" style="text-align: center">
+        <form method="post" action="login.php" class="form-horizontal" style="text-align: center">
             <div class="form-group">
                 <div style="width: 300px; margin: auto">
                     <input class="form-control" name="inputUsername" type="text" id="inputUsername"

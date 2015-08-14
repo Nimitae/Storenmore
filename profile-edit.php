@@ -1,8 +1,14 @@
 <?php
 require_once("forAllPages.php");
+require_once("services/user.service.php");
 
-$newcontact = '<div class="form-group"> <div class="col-sm-3"> <select id="opts" onchange="showForm()"> <option value="0"></option> <option value="1">MapleSEA</option> <option value="2">HP (whatsapp only)</option> <option value="3">HP (SMS only)</option> <option value="4">HP (wechat only)</option> </select> </div><div id="f1" style="display:none"> <div class="inline-block col-sm-2"> <form name="form1"> <select id="opts" onchange="showForm()"> <option value="0">Aquila</option> <option value="1">Bootes</option> <option value="2">Cassaopeia</option> <option value="3">Delphinus</option> <option value="4">Eridanus</option> <option value="5">Izar</option> <option value="6">Jynarvis</option> </select> </form> </div><div class="inline-block col-sm-4"> <input class="form-control" type="text" id="IGN" placeholder="IGN"> </div></div><div id="f2" style="display:none"> <div class="inline-block col-sm-6"> <form name="form2"> <input class="form-control" type="text" id="contactno" placeholder="Contact No."> </form> </div></div><div class="col-sm-1"> <a href=""><img src="images/delete102.png" class="s-50"</a> </div></div>';
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
+}
 
+$userService = new UserService();
+$currentUser = $userService->getUserByUsername($_SESSION['username']);
+//var_dump($currentUser);
 
 include("partials/header.partial.php");
 
@@ -15,18 +21,18 @@ include("partials/header.partial.php");
         Leave any text box blank if you do not wish to display those details on your profile page.
         <div style="height: 30px"></div>
         <div class="form-group">
-            <label for="userID" class="col-sm-3">Email</label>
+            <label for="Email" class="col-sm-3 control-label">Email</label>
 
             <div class="inline-block col-sm-6">
-                <input class="form-control" type="text" id="Email" placeholder="Email;">
+                <input name="email" class="form-control" type="text" id="Email" placeholder="Email" value="<?php sizeof($currentUser->contactContainer[1]) > 0 ? print $currentUser->contactContainer[1][0]->value : print "";?>">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="userID" class="col-sm-3">Contact No.</label>
+            <label for="contactno" class="col-sm-3 control-label">Contact No.</label>
 
             <div class="inline-block col-sm-6">
-                <input class="form-control" type="text" id="contactno" placeholder="Contact No.">
+                <input name="contact" class="form-control" type="text" id="mobile" placeholder="Contact No." value="<?php sizeof($currentUser->contactContainer[2]) > 0 ? print $currentUser->contactContainer[2][0]->value : print "";?>">
             </div>
         </div>
 
@@ -34,7 +40,7 @@ include("partials/header.partial.php");
         <div id="entire_row_1" class="form-group">
 
             <div class="col-sm-3">
-                <select id="row_1" onchange="showForm(this)">
+                <select class="form-control" id="row_1" onchange="showForm(this)">
                     <option value="0"></option>
                     <option value="1">MapleSEA</option>
                     <option value="2">HP (whatsapp only)</option>
@@ -47,7 +53,7 @@ include("partials/header.partial.php");
 
                 <div class="inline-block col-sm-2">
                     <form name="form1">
-                        <select onchange="showForm()">
+                        <select class="form-control" >
                             <option value="0">Aquila</option>
                             <option value="1">Bootes</option>
                             <option value="2">Cassaopeia</option>
